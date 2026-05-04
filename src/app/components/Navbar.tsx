@@ -7,7 +7,7 @@ export function Navbar() {
   const location = useLocation();
 
   const links = [
-    { to: "/", label: "Documentação" },
+    { to: "/", label: "Docs" },
     { to: "/widget", label: "Widget Demo" },
     { to: "/dashboard", label: "Dashboard" },
   ];
@@ -28,7 +28,7 @@ export function Navbar() {
               <Zap className="w-4 h-4 text-white" fill="white" />
             </div>
             <span style={{ color: "#111827" }} className="hidden sm:block">
-              <span style={{ fontWeight: 700 }}>SolPay</span>
+              <span style={{ fontWeight: 700 }}>SolEasy</span>
               <span style={{ color: "#9945FF", fontWeight: 400 }}> SDK</span>
             </span>
           </Link>
@@ -74,7 +74,7 @@ export function Navbar() {
                 fontWeight: 600,
               }}
             >
-              Começar Agora
+              Start Now 
             </Link>
           </div>
 
