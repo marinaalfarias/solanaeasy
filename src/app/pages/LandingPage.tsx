@@ -178,7 +178,7 @@ export function LandingPage() {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  Solana Pay
+                  SolanaEasy
                 </span>
                 <br />
                 em minutos
@@ -391,7 +391,7 @@ export function LandingPage() {
                 </p>
                 <p className="text-sm mt-1" style={{ color: "#8B949E" }}>
                   O widget aparece automaticamente no seu site com design responsivo, QR Code
-                  Solana Pay, suporte a múltiplas carteiras e feedback visual em tempo real.
+                  SolanaEasy, suporte a múltiplas carteiras e feedback visual em tempo real.
                 </p>
               </div>
             </div>
@@ -495,7 +495,7 @@ export function LandingPage() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              Solana Pay?
+              SolanaEasy?
             </span>
           </h2>
           <p className="mt-4" style={{ color: "#8B949E", fontSize: "1.1rem" }}>

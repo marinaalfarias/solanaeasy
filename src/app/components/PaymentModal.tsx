@@ -137,7 +137,7 @@ export function PaymentModal({
                         />
                       </div>
 
-                      {/* Solana Pay badge */}
+                      {/* SolanaEasy badge */}
                       <div
                         className="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs"
                         style={{ background: "rgba(20,241,149,0.1)", color: "#14F195", border: "1px solid rgba(20,241,149,0.2)" }}
@@ -402,7 +402,7 @@ export function PaymentModal({
                       className="flex flex-col gap-4"
                     >
                       <h3 style={{ color: "#F9FAFB", fontWeight: 700 }} className="text-base">
-                        O que é Solana Pay? 🚀
+                        O que é SolanaEasy? 🚀
                       </h3>
 
                       {[
