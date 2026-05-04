@@ -25,7 +25,7 @@ export function PaymentModal({
   const [pulseActive, setPulseActive] = useState(true);
 
   const walletAddress = "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU";
-  const solanaPayUrl = `solana:${walletAddress}?amount=0.98&label=${encodeURIComponent(storeName)}&message=${encodeURIComponent(`Pagamento de R$${amount}`)}`;
+  const solanaeasyUrl = `solana:${walletAddress}?amount=0.98&label=${encodeURIComponent(storeName)}&message=${encodeURIComponent(`Pagamento de R$${amount}`)}`;
 
   useEffect(() => {
     if (!isOpen) {
@@ -129,7 +129,7 @@ export function PaymentModal({
                         style={{ background: "#FFFFFF" }}
                       >
                         <QRCodeSVG
-                          value={solanaPayUrl}
+                          value={solanaeasyUrl}
                           size={180}
                           bgColor="#FFFFFF"
                           fgColor="#0F1117"

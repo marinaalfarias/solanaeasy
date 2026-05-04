@@ -14,4 +14,6 @@ export const router = createBrowserRouter([
       { path: "widget", Component: WidgetDemoPage },
     ],
   },
-]);
+],{
+  basename: "/solanaeasy"
+});
