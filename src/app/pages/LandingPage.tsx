@@ -18,30 +18,30 @@ import {
 } from "lucide-react";
 import { CodeBlock } from "../components/CodeBlock";
 
-const installCode = `npm install @solpay/sdk`;
+const installCode = `npm install @SolEasy/sdk`;
 
-const integrationCode = `import { SolPay } from '@solpay/sdk';
+const integrationCode = `import { SolEasy } from '@SolEasy/sdk';
 
 // 1. Inicialize com sua chave de API
-const solpay = new SolPay({
+const SolEasy = new SolEasy({
   apiKey: 'sp_live_sua_chave_aqui',
   network: 'mainnet-beta',
   currency: 'BRL',
 });
 
 // 2. Configure os eventos
-solpay.on('pagamento:confirmado', (tx) => {
+SolEasy.on('pagamento:confirmado', (tx) => {
   console.log('Pago!', tx.signature);
   fulfillOrder(tx.orderId);
 });
 
-solpay.on('pagamento:falhou', (err) => {
+SolEasy.on('pagamento:falhou', (err) => {
   console.error('Falha:', err.human_message);
 });
 
 // 3. Inicie o pagamento
 async function checkout(order) {
-  await solpay.iniciarPagamento({
+  await SolEasy.iniciarPagamento({
     valor: order.total,
     pedidoId: order.id,
     descricao: \`Pedido \${order.id}\`,
@@ -49,8 +49,8 @@ async function checkout(order) {
 }`;
 
 const webhookCode = `// Webhook para confirmação no backend
-app.post('/webhook/solpay', async (req, res) => {
-  const evento = solpay.verificarWebhook(req);
+app.post('/webhook/SolEasy', async (req, res) => {
+  const evento = SolEasy.verificarWebhook(req);
   
   if (evento.tipo === 'pagamento.confirmado') {
     await atualizarPedido(evento.pedidoId, 'pago');
@@ -74,7 +74,7 @@ const steps = [
     icon: Key,
     title: "Adicione sua chave de API",
     desc: "Obtenha sua chave no dashboard e configure em segundos",
-    code: `const solpay = new SolPay({ apiKey: 'sp_live_...' });`,
+    code: `const SolEasy = new SolEasy({ apiKey: 'sp_live_...' });`,
     language: "typescript",
   },
   {
@@ -82,7 +82,7 @@ const steps = [
     icon: Play,
     title: "Chame iniciarPagamento()",
     desc: "O widget aparece automaticamente para o cliente",
-    code: `await solpay.iniciarPagamento({ valor: 149.99 });`,
+    code: `await SolEasy.iniciarPagamento({ valor: 149.99 });`,
     language: "typescript",
   },
 ];
@@ -154,22 +154,10 @@ export function LandingPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <div
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 text-sm"
-                style={{
-                  background: "rgba(20,241,149,0.1)",
-                  border: "1px solid rgba(20,241,149,0.2)",
-                  color: "#14F195",
-                }}
-              >
-                <span className="w-2 h-2 rounded-full" style={{ background: "#14F195", boxShadow: "0 0 8px #14F195" }} />
-                v2.0 — Agora com IA integrada
-              </div>
-
               <h1
                 style={{ color: "#F9FAFB", fontWeight: 800, fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: 1.1 }}
               >
-                Integre
+                Embed
                 <br />
                 <span
                   style={{
@@ -181,15 +169,14 @@ export function LandingPage() {
                   SolanaEasy
                 </span>
                 <br />
-                em minutos
+                in minutes
               </h1>
 
               <p
                 className="mt-6 text-lg"
                 style={{ color: "#8B949E", lineHeight: 1.7 }}
               >
-                O SDK mais simples para aceitar pagamentos Solana. Três linhas de código, widget
-                pronto, dashboard completo e IA para traduzir erros técnicos.
+                The easier SDK to accept Solana paymetns on your website. Built for developers who value simplicity, performance, and a seamless user experience.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -203,7 +190,7 @@ export function LandingPage() {
                     boxShadow: "0 4px 24px rgba(153,69,255,0.4)",
                   }}
                 >
-                  Começar a Integrar Agora
+                  Start integrating now
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
@@ -215,7 +202,7 @@ export function LandingPage() {
                     background: "rgba(255,255,255,0.05)",
                   }}
                 >
-                  Ver Dashboard
+                  See Dashboard
                   <ChevronRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -223,8 +210,8 @@ export function LandingPage() {
               {/* Trust badges */}
               <div className="mt-10 flex flex-wrap gap-6">
                 {[
-                  { value: "65K", label: "TPS na Solana" },
-                  { value: "$0.00025", label: "Taxa média" },
+                  { value: "65K", label: "TPS on Solana" },
+                  { value: "$0.00025", label: "Average Fee" },
                   { value: "99.9%", label: "Uptime" },
                 ].map((stat) => (
                   <div key={stat.label}>
@@ -258,11 +245,11 @@ export function LandingPage() {
             <h2
               style={{ color: "#111827", fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.5rem)" }}
             >
-              Tudo que você precisa,
-              <span style={{ color: "#9945FF" }}> nada do que não precisa</span>
+              Everything you need,
+              <span style={{ color: "#9945FF" }}> nothing you don't</span>
             </h2>
             <p className="mt-3" style={{ color: "#6B7280" }}>
-              Projetado para desenvolvedores que valorizam simplicidade e performance
+              Designed for developers who value simplicity and performance
             </p>
           </div>
 
@@ -304,7 +291,7 @@ export function LandingPage() {
             <h2
               style={{ color: "#F9FAFB", fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.5rem)" }}
             >
-              Pronto em{" "}
+              Ready in{" "}
               <span
                 style={{
                   background: "linear-gradient(90deg, #9945FF, #14F195)",
@@ -312,11 +299,11 @@ export function LandingPage() {
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                3 passos
+                3 steps
               </span>
             </h2>
             <p className="mt-3" style={{ color: "#8B949E" }}>
-              Do zero ao pagamento em produção em menos de 10 minutos
+              Get started in less than 10 minutes
             </p>
           </div>
 
@@ -355,7 +342,7 @@ export function LandingPage() {
                             className="text-xs"
                             style={{ color: isActive ? "#9945FF" : "#4A5568", fontWeight: 600 }}
                           >
-                            PASSO {step.number}
+                            STEP {step.number}
                           </span>
                         </div>
                         <h3
@@ -387,11 +374,11 @@ export function LandingPage() {
                 style={{ background: "rgba(20,241,149,0.05)", border: "1px solid rgba(20,241,149,0.15)" }}
               >
                 <p className="text-sm" style={{ color: "#14F195", fontWeight: 600 }}>
-                  ✅ Isso é tudo!
+                  ✅ That's it!
                 </p>
                 <p className="text-sm mt-1" style={{ color: "#8B949E" }}>
-                  O widget aparece automaticamente no seu site com design responsivo, QR Code
-                  SolanaEasy, suporte a múltiplas carteiras e feedback visual em tempo real.
+                  The widget appears automatically on your site with a responsive design, QR Code
+                  SolanaEasy, support for multiple wallets, and real-time visual feedback.
                 </p>
               </div>
             </div>
@@ -406,61 +393,10 @@ export function LandingPage() {
               {/* Full integration code below */}
               <div className="mt-4">
                 <p className="text-xs mb-3" style={{ color: "#4A5568" }}>
-                  Exemplo completo de integração:
+                  Complete integration example:
                 </p>
                 <CodeBlock code={integrationCode} language="typescript" />
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Webhook section */}
-      <section className="py-20 px-4" style={{ background: "#F9FAFB" }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs mb-4"
-                style={{ background: "rgba(153,69,255,0.1)", color: "#9945FF", border: "1px solid rgba(153,69,255,0.2)" }}
-              >
-                <Terminal className="w-3.5 h-3.5" />
-                Backend
-              </div>
-              <h2 style={{ color: "#111827", fontWeight: 800, fontSize: "1.8rem" }}>
-                Webhooks simples
-                <br />
-                <span style={{ color: "#9945FF" }}>para o seu backend</span>
-              </h2>
-              <p className="mt-4" style={{ color: "#6B7280", lineHeight: 1.7 }}>
-                Confirme pagamentos de forma segura no servidor. O SolPay envia uma notificação
-                assinada para o seu endpoint assim que a transação for confirmada na blockchain.
-              </p>
-
-              <div className="mt-6 space-y-3">
-                {[
-                  "Assinatura HMAC-SHA256 em cada webhook",
-                  "Retry automático em caso de falha",
-                  "Logs completos no dashboard",
-                  "Suporte a staging e produção",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2.5">
-                    <div
-                      className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
-                      style={{ background: "rgba(20,241,149,0.15)" }}
-                    >
-                      <Check className="w-3 h-3" style={{ color: "#14F195" }} />
-                    </div>
-                    <span className="text-sm" style={{ color: "#374151" }}>
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <CodeBlock code={webhookCode} language="typescript" />
             </div>
           </div>
         </div>
@@ -486,7 +422,7 @@ export function LandingPage() {
           <h2
             style={{ color: "#F9FAFB", fontWeight: 800, fontSize: "clamp(2rem, 4vw, 3rem)" }}
           >
-            Pronto para aceitar
+            Ready to accept
             <br />
             <span
               style={{
@@ -498,9 +434,6 @@ export function LandingPage() {
               SolanaEasy?
             </span>
           </h2>
-          <p className="mt-4" style={{ color: "#8B949E", fontSize: "1.1rem" }}>
-            Junte-se a centenas de lojistas que já aceitam crypto com o SolPay SDK.
-          </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
@@ -514,7 +447,7 @@ export function LandingPage() {
                 boxShadow: "0 4px 32px rgba(153,69,255,0.5)",
               }}
             >
-              Começar a Integrar Agora
+              Start integrating now
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
@@ -525,12 +458,12 @@ export function LandingPage() {
                 border: "1px solid rgba(255,255,255,0.2)",
               }}
             >
-              Ver Dashboard Demo
+              View Dashboard Demo
             </Link>
           </div>
 
           <p className="mt-6 text-sm" style={{ color: "#4A5568" }}>
-            Gratuito para começar • Sem cartão de crédito • Setup em 5 minutos
+            Free to get started • No credit card required • Setup in 5 minutes
           </p>
         </motion.div>
       </section>
@@ -548,10 +481,10 @@ export function LandingPage() {
             >
               <Zap className="w-3 h-3 text-white" fill="white" />
             </div>
-            <span style={{ color: "#F9FAFB", fontWeight: 700 }}>SolPay SDK</span>
+            <span style={{ color: "#F9FAFB", fontWeight: 700 }}>SolEasy SDK</span>
           </div>
           <p className="text-sm" style={{ color: "#4A5568" }}>
-            © 2026 SolPay SDK. Construído com ❤️ para a comunidade Solana.
+            © 2026 SolEasy SDK. Built with ❤️ for the Solana community.
           </p>
           <div className="flex gap-4 text-sm" style={{ color: "#4A5568" }}>
             <a href="#" style={{ color: "#8B949E" }}>Docs</a>

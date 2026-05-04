@@ -151,10 +151,10 @@ export function DashboardPage() {
   const navigate = useNavigate();
 
   const menuItems = [
-    { id: "home", label: "Visão Geral", icon: Home },
-    { id: "transactions", label: "Transações", icon: List },
-    { id: "analytics", label: "Análises", icon: BarChart2 },
-    { id: "settings", label: "Configurações", icon: Settings },
+    { id: "home", label: "General View", icon: Home },
+    { id: "transactions", label: "Transactions", icon: List },
+    { id: "analytics", label: "Analytics", icon: BarChart2 },
+    { id: "settings", label: "Settings", icon: Settings },
   ];
 
   const totalVendas = "R$ 27.840,30";
@@ -179,7 +179,7 @@ export function DashboardPage() {
               <Zap className="w-4 h-4 text-white" fill="white" />
             </div>
             <span>
-              <span style={{ color: "#F9FAFB", fontWeight: 700 }}>SolPay</span>
+              <span style={{ color: "#F9FAFB", fontWeight: 700 }}>SolEasy</span>
               <span style={{ color: "#9945FF" }}> SDK</span>
             </span>
           </Link>
@@ -192,16 +192,16 @@ export function DashboardPage() {
               className="w-8 h-8 rounded-full flex items-center justify-center text-sm"
               style={{ background: "linear-gradient(135deg, #9945FF33, #14F19533)", color: "#14F195", fontWeight: 700 }}
             >
-              L
+              S
             </div>
             <div>
               <p className="text-sm" style={{ color: "#F9FAFB", fontWeight: 600 }}>
-                Loja do Dev
+                Dev Store
               </p>
               <div className="flex items-center gap-1">
                 <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#14F195" }} />
                 <p className="text-xs" style={{ color: "#14F195" }}>
-                  Ativo
+                  Active
                 </p>
               </div>
             </div>
@@ -246,14 +246,14 @@ export function DashboardPage() {
             style={{ color: "#8B949E" }}
           >
             <ExternalLink className="w-4 h-4" />
-            Ver Widget Demo
+            View Widget Demo
           </button>
           <button
             className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-all"
             style={{ color: "#EF4444" }}
           >
             <LogOut className="w-4 h-4" />
-            Sair
+            Sign Out
           </button>
         </div>
       </aside>
@@ -267,13 +267,13 @@ export function DashboardPage() {
         >
           <div>
             <h1 style={{ color: "#F9FAFB", fontWeight: 700 }} className="text-xl">
-              {activeMenu === "home" && "Visão Geral"}
-              {activeMenu === "transactions" && "Transações"}
-              {activeMenu === "analytics" && "Análises"}
-              {activeMenu === "settings" && "Configurações"}
+              {activeMenu === "home" && "General View"}
+              {activeMenu === "transactions" && "Transactions"}
+              {activeMenu === "analytics" && "Analytics"}
+              {activeMenu === "settings" && "Settings"}
             </h1>
             <p className="text-sm" style={{ color: "#8B949E" }}>
-              30 de Abril de 2026
+              April 30, 2026
             </p>
           </div>
 
@@ -283,7 +283,7 @@ export function DashboardPage() {
               style={{ background: "rgba(255,255,255,0.05)", color: "#8B949E" }}
             >
               <Search className="w-4 h-4" />
-              <span>Buscar...</span>
+              <span>Search...</span>
             </div>
             <button
               className="p-2 rounded-xl relative"
@@ -316,27 +316,27 @@ export function DashboardPage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               {
-                label: "Total de Vendas",
+                label: "Total Sales",
                 value: totalVendas,
                 change: "+12.5%",
                 positive: true,
-                sub: "últimos 7 dias",
+                sub: "last 7 days",
                 color: "#14F195",
               },
               {
-                label: "Taxa de Conversão",
+                label: "Conversion Rate",
                 value: taxaConversao,
                 change: "+3.2%",
                 positive: true,
-                sub: "iniciados vs concluídos",
+                sub: "initiated vs completed",
                 color: "#9945FF",
               },
               {
-                label: "Transações Hoje",
+                label: "Transactions Today",
                 value: transacoesHoje,
                 change: "-2",
                 positive: false,
-                sub: "vs ontem: 26",
+                sub: "vs yesterday: 26",
                 color: "#FBB724",
               },
               {
@@ -392,10 +392,10 @@ export function DashboardPage() {
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <h3 style={{ color: "#F9FAFB", fontWeight: 600 }}>
-                    Volume de Vendas
+                    Sales Volume
                   </h3>
                   <p className="text-sm" style={{ color: "#8B949E" }}>
-                    Últimos 7 dias
+                    Last 7 days
                   </p>
                 </div>
                 <button className="p-2 rounded-lg" style={{ color: "#8B949E" }}>
@@ -450,10 +450,10 @@ export function DashboardPage() {
             >
               <div className="mb-6">
                 <h3 style={{ color: "#F9FAFB", fontWeight: 600 }}>
-                  Transações/Dia
+                  Transactions/Day
                 </h3>
                 <p className="text-sm" style={{ color: "#8B949E" }}>
-                  Quantidade diária
+                  Daily Quantity
                 </p>
               </div>
               <ResponsiveContainer width="100%" height={200}>
@@ -500,11 +500,11 @@ export function DashboardPage() {
             >
               <div>
                 <h3 style={{ color: "#F9FAFB", fontWeight: 600 }}>
-                  Transações Recentes
+                  Recent Transactions
                 </h3>
                 <p className="text-sm" style={{ color: "#8B949E" }}>
-                  Clique no ícone{" "}
-                  <span style={{ color: "#9945FF" }}>ⓘ</span> para insights da IA
+                  Click the icon{" "}
+                  <span style={{ color: "#9945FF" }}>ⓘ</span> for AI insights
                 </p>
               </div>
               <div className="flex items-center gap-2">
@@ -513,7 +513,7 @@ export function DashboardPage() {
                   style={{ background: "rgba(153,69,255,0.1)", color: "#9945FF", border: "1px solid rgba(153,69,255,0.2)" }}
                 >
                   <TrendingUp className="w-3.5 h-3.5" />
-                  IA Ativa
+                  AI Active
                 </div>
               </div>
             </div>

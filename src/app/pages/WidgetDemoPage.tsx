@@ -18,7 +18,7 @@ export function WidgetDemoPage() {
         style={{ background: "linear-gradient(90deg, #9945FF22, #14F19522)", borderBottom: "1px solid rgba(153,69,255,0.2)" }}
       >
         <span style={{ color: "#9945FF" }}>🎮 Ambiente de Demonstração</span>
-        <span style={{ color: "#111827" }}> — Veja como o Widget de Pagamento SolPay funciona</span>
+        <span style={{ color: "#111827" }}> — Veja como o Widget de Pagamento SolEasy funciona</span>
       </div>
 
       <div className="max-w-5xl mx-auto px-4 py-12">
@@ -31,14 +31,14 @@ export function WidgetDemoPage() {
             >
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=600&fit=crop"
-                alt="Relógio Premium"
+                alt="Premium Watch"
                 className="w-full h-full object-cover"
               />
               <div
                 className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs"
                 style={{ background: "rgba(20,241,149,0.9)", color: "#111827", fontWeight: 700 }}
               >
-                🔥 Mais Vendido
+                🔥 Most Sold
               </div>
             </div>
             <div className="grid grid-cols-3 gap-3">
@@ -65,7 +65,7 @@ export function WidgetDemoPage() {
                 Loja do Dev • Tecnologia Premium
               </p>
               <h1 style={{ color: "#111827", fontSize: "1.75rem", fontWeight: 700 }}>
-                Relógio Smart Pro X1
+                Premium Watch
               </h1>
 
               <div className="flex items-center gap-2 mt-2">
@@ -80,7 +80,7 @@ export function WidgetDemoPage() {
                   ))}
                 </div>
                 <span className="text-sm" style={{ color: "#6B7280" }}>
-                  4.9 (328 avaliações)
+                  4.9 (328 reviews)
                 </span>
               </div>
             </div>
@@ -91,7 +91,7 @@ export function WidgetDemoPage() {
                   R$ {price.toFixed(2).replace(".", ",")}
                 </span>
                 <span style={{ color: "#9CA3AF", textDecoration: "line-through" }}>
-                  R$ 229,99
+                  US$ 229,99
                 </span>
                 <span
                   className="px-2 py-0.5 rounded-full text-xs"
@@ -100,15 +100,12 @@ export function WidgetDemoPage() {
                   -35%
                 </span>
               </div>
-              <p className="text-sm mt-1" style={{ color: "#6B7280" }}>
-                ou 6x de R$ 24,99 sem juros
-              </p>
             </div>
 
             {/* Quantity */}
             <div className="flex items-center gap-4">
               <span className="text-sm" style={{ color: "#111827" }}>
-                Quantidade:
+                Quantity:
               </span>
               <div className="flex items-center gap-3 border rounded-xl px-4 py-2" style={{ borderColor: "#E5E7EB" }}>
                 <button
@@ -134,9 +131,9 @@ export function WidgetDemoPage() {
             {/* Benefits */}
             <div className="grid grid-cols-3 gap-3">
               {[
-                { icon: Truck, label: "Frete Grátis" },
-                { icon: Shield, label: "Garantia 1 ano" },
-                { icon: Zap, label: "Entrega Rápida" },
+                { icon: Truck, label: "Free Shipping" },
+                { icon: Shield, label: "1-Year Warranty" },
+                { icon: Zap, label: "Fast Delivery" },
               ].map(({ icon: Icon, label }) => (
                 <div
                   key={label}
@@ -158,10 +155,10 @@ export function WidgetDemoPage() {
                 className="w-full py-3.5 rounded-xl transition-all"
                 style={{ background: "#111827", color: "#F9FAFB", fontWeight: 600 }}
               >
-                🛒 Comprar com Cartão — R$ {total}
+                🛒 Buy with Card — US$ {total}
               </button>
 
-              {/* SolPay Button - the main CTA */}
+              {/* SolEasy Button - the main CTA */}
               <button
                 onClick={() => setModalOpen(true)}
                 className="w-full py-3.5 rounded-xl transition-all relative overflow-hidden group"
@@ -174,12 +171,12 @@ export function WidgetDemoPage() {
               >
                 <span className="flex items-center justify-center gap-2">
                   <Zap className="w-4 h-4" fill="currentColor" />
-                  Pagar com Solana — R$ {total}
+                  Pay with Solana — US$ {total}
                 </span>
               </button>
 
               <p className="text-xs text-center" style={{ color: "#9CA3AF" }}>
-                Pagamento instantâneo • Sem taxas bancárias • Powered by SolPay SDK
+                Instant payment • No banking fees • Powered by SolEasy SDK
               </p>
             </div>
           </div>
@@ -191,23 +188,23 @@ export function WidgetDemoPage() {
           style={{ background: "#0F1117", border: "1px solid rgba(153,69,255,0.2)" }}
         >
           <p className="text-xs mb-3" style={{ color: "#8B949E" }}>
-            💡 Este botão foi integrado com apenas 3 linhas de código:
+            💡 This button was integrated with just 3 lines of code:
           </p>
           <pre
             className="text-sm font-mono overflow-x-auto"
             style={{ color: "#14F195" }}
-          >{`import { SolPay } from '@solpay/sdk';
-const solpay = new SolPay({ apiKey: 'sua_chave' });
-solpay.iniciarPagamento({ valor: ${(price * quantity).toFixed(2)}, moeda: 'BRL' });`}</pre>
+          >{`import { SolEasy } from '@SolEasy/sdk';
+const SolEasy = new SolEasy({ apiKey: 'sua_chave' });
+SolEasy.iniciarPagamento({ valor: ${(price * quantity).toFixed(2)}, moeda: 'BRL' });`}</pre>
         </div>
       </div>
 
       <PaymentModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        storeName="Loja do Dev"
+        storeName="Dev Store"
         amount={total}
-        currency="BRL"
+        currency="USD"
       />
     </div>
   );

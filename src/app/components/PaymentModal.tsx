@@ -461,7 +461,7 @@ export function PaymentModal({
                     className="text-xs"
                     style={{ color: "#9945FF", fontWeight: 600 }}
                   >
-                    SolPay SDK
+                    SolEasy SDK
                   </span>
                   <span className="text-xs" style={{ color: "#4A5568" }}>
                     • 256-bit SSL
