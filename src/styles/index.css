@@ -1,0 +1,13 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.9); }
+}
+
+@keyframes solana-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(20, 241, 149, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(20, 241, 149, 0.8), 0 0 40px rgba(153, 69, 255, 0.3); }
+}
