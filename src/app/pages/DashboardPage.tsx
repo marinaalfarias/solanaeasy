@@ -32,13 +32,13 @@ import {
 } from "recharts";
 
 const salesData = [
-  { day: "Seg", vendas: 2400, transacoes: 12 },
-  { day: "Ter", vendas: 3200, transacoes: 18 },
-  { day: "Qua", vendas: 2800, transacoes: 15 },
-  { day: "Qui", vendas: 4100, transacoes: 22 },
-  { day: "Sex", vendas: 5200, transacoes: 28 },
-  { day: "Sáb", vendas: 6800, transacoes: 35 },
-  { day: "Dom", vendas: 4500, transacoes: 24 },
+  { day: "Mon", vendas: 2400, transacoes: 12 },
+  { day: "Tue", vendas: 3200, transacoes: 18 },
+  { day: "Wed", vendas: 2800, transacoes: 15 },
+  { day: "Thu", vendas: 4100, transacoes: 22 },
+  { day: "Fri", vendas: 5200, transacoes: 28 },
+  { day: "Sat", vendas: 6800, transacoes: 35 },
+  { day: "Sun", vendas: 4500, transacoes: 24 },
 ];
 
 const transactions = [
@@ -305,7 +305,7 @@ export function DashboardPage() {
               >
                 L
               </div>
-              <span>Loja do Dev</span>
+              <span>Dev Store</span>
               <ChevronDown className="w-3.5 h-3.5" style={{ color: "#8B949E" }} />
             </button>
           </div>
@@ -340,7 +340,7 @@ export function DashboardPage() {
                 color: "#FBB724",
               },
               {
-                label: "Receita em USDC",
+                label: "Revenue in USDC",
                 value: receitaUSDC,
                 change: "+8.1%",
                 positive: true,
