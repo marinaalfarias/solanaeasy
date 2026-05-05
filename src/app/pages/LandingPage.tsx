@@ -18,110 +18,118 @@ import {
 } from "lucide-react";
 import { CodeBlock } from "../components/CodeBlock";
 
-const installCode = `npm install @SolEasy/sdk`;
+const installCode = `# Core SDK (calls SolanaEasy backend)
+pip install solanaeasy
 
-const integrationCode = `import { SolEasy } from '@SolEasy/sdk';
+# With direct Solana network access
+pip install solanaeasy[solana]`;
 
-// 1. Inicialize com sua chave de API
-const SolEasy = new SolEasy({
-  apiKey: 'sp_live_sua_chave_aqui',
-  network: 'mainnet-beta',
-  currency: 'BRL',
-});
+const integrationCode = `from solanaeasy import SolanaEasy
 
-// 2. Configure os eventos
-SolEasy.on('pagamento:confirmado', (tx) => {
-  console.log('Pago!', tx.signature);
-  fulfillOrder(tx.orderId);
-});
+sdk = SolanaEasy(api_key="sk_test_...")
 
-SolEasy.on('pagamento:falhou', (err) => {
-  console.error('Falha:', err.human_message);
-});
+# Create a payment session
+session = sdk.create_payment(
+    amount=50.00,
+    currency="USDC",
+    order_id="order_123",
+    description="Nike Air Max",
+)
 
-// 3. Inicie o pagamento
-async function checkout(order) {
-  await SolEasy.iniciarPagamento({
-    valor: order.total,
-    pedidoId: order.id,
-    descricao: \`Pedido \${order.id}\`,
-  });
-}`;
+print(session.payment_url)   # → redirect your customer here
+print(session.session_id)    # → save this to track the payment
+
+# Wait for confirmation (auto-polling, no loop needed)
+status = sdk.wait_for_confirmation(session.session_id, timeout=120)
+print(status.human_message)  # → "Payment confirmed in 2.3s"`;
 
 const webhookCode = `// Webhook para confirmação no backend
-app.post('/webhook/SolEasy', async (req, res) => {
-  const evento = SolEasy.verificarWebhook(req);
-  
-  if (evento.tipo === 'pagamento.confirmado') {
-    await atualizarPedido(evento.pedidoId, 'pago');
-    await enviarEmail(evento.cliente.email);
-  }
-  
-  res.json({ recebido: true });
-});`;
+sdk = SolanaEasy(api_key="sk_...", webhook_secret="whsec_...")
+
+# Register handlers using the decorator
+@sdk.on("payment.confirmed")
+def on_confirmed(event):
+    fulfill_order(event.session_id)
+    print(event.data.human_message)  # "Payment confirmed in 2.3s"
+
+@sdk.on("payment.failed")
+def on_failed(event):
+    notify_customer(event.session_id)
+
+# In your webhook endpoint (Flask / FastAPI / Django)
+@app.post("/webhook/solana")
+def webhook_endpoint(request):
+    sdk.process_webhook(
+        payload=request.body,
+        signature=request.headers["X-SolanaEasy-Signature"],
+    )
+    return 200`;
 
 const steps = [
   {
     number: "01",
     icon: Package,
-    title: "Instale o SDK",
-    desc: "Um único comando npm instala tudo que você precisa",
+    title: "Install the SDK",
+    desc: "A single pip install is all it takes to get started with our powerful SolanaEasy SDK.",
     code: installCode,
     language: "bash",
   },
   {
     number: "02",
     icon: Key,
-    title: "Adicione sua chave de API",
-    desc: "Obtenha sua chave no dashboard e configure em segundos",
-    code: `const SolEasy = new SolEasy({ apiKey: 'sp_live_...' });`,
-    language: "typescript",
+    title: "Add Your API Key",
+    desc: "Get your key from the dashboard and configure it in seconds",
+    code: 'sdk = SolanaEasy(api_key="sk_test_...")',
+    language: "python",
   },
   {
     number: "03",
     icon: Play,
-    title: "Chame iniciarPagamento()",
-    desc: "O widget aparece automaticamente para o cliente",
-    code: `await SolEasy.iniciarPagamento({ valor: 149.99 });`,
-    language: "typescript",
+    title: "Call initiatePayment()",
+    desc: "The widget appears automatically for the customer",
+    code: 'sdk.create_payment(amount=50.00, ...)',
+    language: "python",
   },
 ];
 
 const features = [
   {
     icon: Zap,
-    title: "< 400ms Latency",
-    desc: "Solana processes 65,000 TPS. Your customers don't wait.",
+    title: "Manage cryptographic keypairs with ease",
+    code: 'sdk.create_payment(amount=50.00, ...)',
     color: "#14F195",
   },
   {
     icon: Shield,
-    title: "On-Chain Security",
-    desc: "Each transaction is cryptographically signed and immutable.",
+    title: "Parse RPC errors into human language",
+    code: 'status.human_message in plain English',
+    language: "python",
     color: "#9945FF",
   },
   {
     icon: BarChart2,
-    title: "Total Observability",
-    desc: "Real-time dashboard with AI-powered error analysis.",
+    title: "Easy build webhook verification",
+    code: 'sdk.verify_webhook_signature(payload, sig)',
+    language: "python",
     color: "#FBB724",
   },
   {
     icon: Code2,
-    title: "3 Lines of Code",
-    desc: "The simplest integration in the crypto market.",
+    title: "Async Support",
+    code: 'await sdk.create_payment(amount=50.00, ...)',
+    language: "python",
     color: "#14F195",
   },
   {
     icon: Globe,
-    title: "Multi-Currency",
-    desc: "Accept SOL, USDC or automatically convert to BRL.",
+    title: "CLI",
+    desc: "Command-line tool for quick interactions and testing",
     color: "#9945FF",
   },
   {
     icon: Cpu,
-    title: "Integrated AI",
-    desc: "Technical errors translated into human language.",
+    title: "Idempotency",
+    desc: "Pass idempotency_key to prevent duplicate charges on network retries",
     color: "#FBB724",
   },
 ];

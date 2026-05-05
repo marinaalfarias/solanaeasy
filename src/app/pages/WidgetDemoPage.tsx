@@ -17,8 +17,8 @@ export function WidgetDemoPage() {
         className="py-2 px-4 text-center text-sm"
         style={{ background: "linear-gradient(90deg, #9945FF22, #14F19522)", borderBottom: "1px solid rgba(153,69,255,0.2)" }}
       >
-        <span style={{ color: "#9945FF" }}>🎮 Ambiente de Demonstração</span>
-        <span style={{ color: "#111827" }}> — Veja como o Widget de Pagamento SolEasy funciona</span>
+        <span style={{ color: "#9945FF" }}>🎮 Demo Environment</span>
+        <span style={{ color: "#111827" }}> — See how the SolanaEasy Payment Widget works</span>
       </div>
 
       <div className="max-w-5xl mx-auto px-4 py-12">
@@ -62,7 +62,7 @@ export function WidgetDemoPage() {
           <div className="space-y-6">
             <div>
               <p className="text-sm mb-1" style={{ color: "#9945FF" }}>
-                Loja do Dev • Tecnologia Premium
+                Dev Store • Premium Technology
               </p>
               <h1 style={{ color: "#111827", fontSize: "1.75rem", fontWeight: 700 }}>
                 Premium Watch
@@ -188,14 +188,23 @@ export function WidgetDemoPage() {
           style={{ background: "#0F1117", border: "1px solid rgba(153,69,255,0.2)" }}
         >
           <p className="text-xs mb-3" style={{ color: "#8B949E" }}>
-            💡 This button was integrated with just 3 lines of code:
+            💡 This button was integrated with just these lines of code:
           </p>
           <pre
             className="text-sm font-mono overflow-x-auto"
             style={{ color: "#14F195" }}
-          >{`import { SolEasy } from '@SolEasy/sdk';
-const SolEasy = new SolEasy({ apiKey: 'sua_chave' });
-SolEasy.iniciarPagamento({ valor: ${(price * quantity).toFixed(2)}, moeda: 'BRL' });`}</pre>
+          >{`from solanaeasy import SolanaEasy
+sdk = SolanaEasy(api_key="sk_test_...")
+session = sdk.create_payment(
+    amount=149.99,
+    currency="USDC",
+    order_id="order_123",
+    description="Nike Air Max",
+)
+print(session.payment_url)   # → redirect your customer here
+print(session.session_id)    # → save this to track the payment
+status = sdk.wait_for_confirmation(session.session_id, timeout=120)
+print(status.human_message)  # → "Payment confirmed in 2.3s"`}</pre>
         </div>
       </div>
 
