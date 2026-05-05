@@ -75,7 +75,7 @@ export function CodeBlock({ code, language = "typescript" }: CodeBlockProps) {
             <div className="w-3 h-3 rounded-full" style={{ background: "#28C840" }} />
           </div>
           <span className="ml-2 text-xs" style={{ color: "#8B949E" }}>
-            {language === "typescript" ? "integração.ts" : language === "bash" ? "terminal" : "código"}
+            {language === "typescript" ? "integration.ts" : language === "bash" ? "terminal" : "code"}
           </span>
         </div>
         <button
@@ -88,7 +88,7 @@ export function CodeBlock({ code, language = "typescript" }: CodeBlockProps) {
           }}
         >
           {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
-          {copied ? "Copiado!" : "Copiar"}
+          {copied ? "Copied!" : "Copy"}
         </button>
       </div>
 
