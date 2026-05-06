@@ -57,7 +57,7 @@ export function Navbar() {
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="https://github.com"
+              href="https://github.com/medeirosdev/solanaeasy"
               target="_blank"
               rel="noreferrer"
               className="px-3 py-1.5 rounded-lg text-sm transition-all"
