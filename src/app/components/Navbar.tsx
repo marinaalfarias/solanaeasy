@@ -22,16 +22,11 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div
-              className="w-8 h-8 rounded-lg flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg, #9945FF, #14F195)" }}
-            >
-              <img
-                src={logoSolanaEasy}
-                alt="Logo SolanaEasy"
-                className="w-5 h-5 object-contain"
-              />
-            </div>
+            <img
+              src={logoSolanaEasy}
+              alt="Logo SolanaEasy"
+              className="w-8 h-8 object-contain rounded-lg"
+            />
             <span style={{ color: "#111827" }} className="hidden sm:block">
               <span style={{ fontWeight: 700 }}>SolEasy</span>
               <span style={{ color: "#9945FF", fontWeight: 400 }}> SDK</span>

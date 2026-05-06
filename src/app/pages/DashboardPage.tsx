@@ -173,12 +173,11 @@ export function DashboardPage() {
         {/* Logo */}
         <div className="px-6 py-5" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
           <Link to="/" className="flex items-center gap-2">
-            <div
-              className="w-8 h-8 rounded-lg flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg, #9945FF, #14F195)" }}
-            >
-              <img src={logoSolanaEasy} alt="SolanaEasy logo" className="w-5 h-5 object-contain" />
-            </div>
+            <img 
+              src={logoSolanaEasy} 
+              alt="SolanaEasy logo" 
+              className="w-8 h-8 object-contain rounded-lg" 
+            />
             <span>
               <span style={{ color: "#F9FAFB", fontWeight: 700 }}>SolEasy</span>
               <span style={{ color: "#9945FF" }}> SDK</span>

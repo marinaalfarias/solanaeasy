@@ -17,6 +17,7 @@ import {
   Cpu,
 } from "lucide-react";
 import { CodeBlock } from "../components/CodeBlock";
+import logoSolanaEasy from '../../assets/logo.svg';
 
 const installCode = `# Core SDK (calls SolanaEasy backend)
 pip install solanaeasy
@@ -483,21 +484,26 @@ export function LandingPage() {
       >
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div
-              className="w-6 h-6 rounded-md flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg, #9945FF, #14F195)" }}
-            >
-              <Zap className="w-3 h-3 text-white" fill="white" />
-            </div>
+            <img
+              src={logoSolanaEasy}
+              alt="Logo SolEasy"
+              className="w-6 h-6 object-contain rounded-md"
+            />
             <span style={{ color: "#F9FAFB", fontWeight: 700 }}>SolEasy SDK</span>
           </div>
           <p className="text-sm" style={{ color: "#4A5568" }}>
             © 2026 SolEasy SDK. Built with ❤️ for the Solana community.
           </p>
           <div className="flex gap-4 text-sm" style={{ color: "#4A5568" }}>
-            <a href="#" style={{ color: "#8B949E" }}>Docs</a>
-            <a href="#" style={{ color: "#8B949E" }}>GitHub</a>
-            <a href="#" style={{ color: "#8B949E" }}>Discord</a>
+            <a href="https://pypi.org/project/solanaeasy/" target="_blank" rel="noopener noreferrer" 
+  style={{ color: "#8B949E", transition: "color 0.2s" }}
+  className="hover:text-white">Docs</a>
+            <a href="https://github.com/medeirosdev/solanaeasy" target="_blank" rel="noopener noreferrer" 
+  style={{ color: "#8B949E", transition: "color 0.2s" }}
+  className="hover:text-white">GitHub</a>
+            <a href="https://github.com/medeirosdev/solanaeasy#readme" target="_blank" rel="noopener noreferrer" 
+  style={{ color: "#8B949E", transition: "color 0.2s" }}
+  className="hover:text-white">ReadMe</a>
           </div>
         </div>
       </footer>
