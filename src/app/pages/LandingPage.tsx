@@ -215,24 +215,6 @@ export function LandingPage() {
                   <ChevronRight className="w-4 h-4" />
                 </Link>
               </div>
-
-              {/* Trust badges */}
-              <div className="mt-10 flex flex-wrap gap-6">
-                {[
-                  { value: "65K", label: "TPS on Solana" },
-                  { value: "$0.00025", label: "Average Fee" },
-                  { value: "99.9%", label: "Uptime" },
-                ].map((stat) => (
-                  <div key={stat.label}>
-                    <p style={{ color: "#14F195", fontWeight: 800, fontSize: "1.5rem" }}>
-                      {stat.value}
-                    </p>
-                    <p className="text-sm" style={{ color: "#8B949E" }}>
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
             </motion.div>
 
             {/* Right - Code preview */}
