@@ -477,15 +477,15 @@ export function LandingPage() {
             © 2026 SolEasy SDK. Built with ❤️ for the Solana community.
           </p>
           <div className="flex gap-4 text-sm" style={{ color: "#4A5568" }}>
-            <a href="https://pypi.org/project/solanaeasy/" target="_blank" rel="noopener noreferrer" 
+            <a href="https://medeirosdev.github.io/solanaeasy/" target="_blank" rel="noopener noreferrer" 
   style={{ color: "#8B949E", transition: "color 0.2s" }}
   className="hover:text-white">Docs</a>
             <a href="https://github.com/medeirosdev/solanaeasy" target="_blank" rel="noopener noreferrer" 
   style={{ color: "#8B949E", transition: "color 0.2s" }}
   className="hover:text-white">GitHub</a>
-            <a href="https://github.com/medeirosdev/solanaeasy#readme" target="_blank" rel="noopener noreferrer" 
+            <a href="https://pypi.org/project/solanaeasy/" target="_blank" rel="noopener noreferrer" 
   style={{ color: "#8B949E", transition: "color 0.2s" }}
-  className="hover:text-white">ReadMe</a>
+  className="hover:text-white">SDK</a>
           </div>
         </div>
       </footer>
