@@ -16,7 +16,7 @@ interface PaymentModalProps {
 export function PaymentModal({
   isOpen,
   onClose,
-  storeName = "Loja do Dev",
+  storeName = "Dev Store",
   amount = "150,00",
   currency = "BRL",
 }: PaymentModalProps) {
@@ -93,12 +93,12 @@ export function PaymentModal({
                       className="flex items-center gap-1.5 text-sm"
                       style={{ color: "#9945FF" }}
                     >
-                      <ArrowLeft className="w-4 h-4" /> Voltar
+                      <ArrowLeft className="w-4 h-4" /> Back
                     </button>
                   )}
                   {state === "success" && (
                     <p style={{ color: "#14F195", fontWeight: 700 }} className="text-lg">
-                      Pagamento Confirmado!
+                      Payment Successful!
                     </p>
                   )}
                 </div>
@@ -150,11 +150,11 @@ export function PaymentModal({
                             animation: "pulse 1.5s ease-in-out infinite",
                           }}
                         />
-                        Aguardando pagamento...
+                        Waiting for payment...
                       </div>
 
                       <p className="text-xs text-center" style={{ color: "#8B949E" }}>
-                        Escaneie com qualquer carteira Solana compatível
+                        Scan with any compatible Solana wallet
                       </p>
 
                       {/* Wallet button */}
@@ -168,7 +168,7 @@ export function PaymentModal({
                         }}
                       >
                         <Wallet className="w-4 h-4" />
-                        Pagar com Carteira
+                        Pay with Wallet
                       </button>
 
                       <button
@@ -177,7 +177,7 @@ export function PaymentModal({
                         style={{ color: "#8B949E" }}
                       >
                         <HelpCircle className="w-3.5 h-3.5" />
-                        O que é isso?
+                        What is this?
                       </button>
                     </motion.div>
                   )}
@@ -192,7 +192,7 @@ export function PaymentModal({
                       className="flex flex-col gap-4"
                     >
                       <p className="text-sm text-center" style={{ color: "#8B949E" }}>
-                        Escolha sua carteira
+                        Choose your wallet
                       </p>
 
                       {[
@@ -222,7 +222,7 @@ export function PaymentModal({
                           <div className="flex-1 text-left">
                             <p style={{ fontWeight: 600 }}>{wallet.name}</p>
                             <p className="text-xs" style={{ color: "#8B949E" }}>
-                              Extensão detectada
+                              Extension detected
                             </p>
                           </div>
                           <ExternalLink className="w-4 h-4" style={{ color: "#8B949E" }} />
@@ -234,7 +234,7 @@ export function PaymentModal({
                         style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}
                       >
                         <p className="text-xs mb-2" style={{ color: "#8B949E" }}>
-                          Ou envie manualmente para:
+                          Or send manually to:
                         </p>
                         <div className="flex items-center gap-2">
                           <code
@@ -258,7 +258,7 @@ export function PaymentModal({
                         className="text-sm text-center"
                         style={{ color: "#8B949E" }}
                       >
-                        ← Voltar para QR Code
+                        ← Back to QR Code
                       </button>
                     </motion.div>
                   )}
@@ -290,9 +290,9 @@ export function PaymentModal({
                         </div>
                       </div>
                       <div className="text-center">
-                        <p style={{ color: "#F9FAFB", fontWeight: 600 }}>Processando...</p>
+                        <p style={{ color: "#F9FAFB", fontWeight: 600 }}>Processing...</p>
                         <p className="text-sm mt-1" style={{ color: "#8B949E" }}>
-                          Confirmando na blockchain Solana
+                          Confirming on the Solana blockchain
                         </p>
                       </div>
                       <div className="flex gap-1">
@@ -351,10 +351,10 @@ export function PaymentModal({
                         className="text-center"
                       >
                         <p style={{ color: "#14F195", fontWeight: 700 }} className="text-xl">
-                          Sucesso!
+                          Success!
                         </p>
                         <p className="text-sm mt-1" style={{ color: "#8B949E" }}>
-                          Seu recibo foi gerado
+                          Your receipt has been generated.
                         </p>
                       </motion.div>
 
@@ -366,15 +366,15 @@ export function PaymentModal({
                         style={{ background: "rgba(20,241,149,0.06)", border: "1px solid rgba(20,241,149,0.15)" }}
                       >
                         <div className="flex justify-between mb-2">
-                          <span style={{ color: "#8B949E" }}>Valor pago</span>
+                          <span style={{ color: "#8B949E" }}>Amount Paid</span>
                           <span style={{ color: "#F9FAFB", fontWeight: 600 }}>R$ {amount}</span>
                         </div>
                         <div className="flex justify-between mb-2">
-                          <span style={{ color: "#8B949E" }}>Taxa de rede</span>
+                          <span style={{ color: "#8B949E" }}>Network Fee</span>
                           <span style={{ color: "#14F195" }}>~0.000005 SOL</span>
                         </div>
                         <div className="flex justify-between">
-                          <span style={{ color: "#8B949E" }}>Confirmações</span>
+                          <span style={{ color: "#8B949E" }}>Confirmations</span>
                           <span style={{ color: "#14F195" }}>32/32 ✓</span>
                         </div>
                       </motion.div>
@@ -387,7 +387,7 @@ export function PaymentModal({
                         className="w-full py-3 rounded-xl transition-all"
                         style={{ background: "rgba(20,241,149,0.1)", color: "#14F195", border: "1px solid rgba(20,241,149,0.3)", fontWeight: 600 }}
                       >
-                        Fechar
+                        Close
                       </motion.button>
                     </motion.div>
                   )}
@@ -402,24 +402,24 @@ export function PaymentModal({
                       className="flex flex-col gap-4"
                     >
                       <h3 style={{ color: "#F9FAFB", fontWeight: 700 }} className="text-base">
-                        O que é SolanaEasy? 🚀
+                        What is SolanaEasy? 🚀
                       </h3>
 
                       {[
                         {
                           step: "1",
-                          title: "Blockchain rápida",
-                          desc: "Solana processa ~65.000 transações por segundo, com taxas de menos de $0,01.",
+                          title: "Fast Blockchain",
+                          desc: "Solana processes ~65.000 transactions per second, with fees of less than $0.01.",
                         },
                         {
                           step: "2",
-                          title: "QR Code seguro",
-                          desc: "O QR Code contém todos os dados do pagamento criptografados e assinados.",
+                          title: "Secure QR Code",
+                          desc: "The QR Code contains all payment data encrypted and signed.",
                         },
                         {
                           step: "3",
-                          title: "Precisa de uma carteira?",
-                          desc: "Instale o Phantom (phantom.app) — é gratuito e funciona como extensão no Chrome.",
+                          title: "Need a wallet?",
+                          desc: "Install Phantom (phantom.app) — it's free and works as a Chrome extension."
                         },
                       ].map((item) => (
                         <div

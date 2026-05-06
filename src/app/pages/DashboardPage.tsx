@@ -30,6 +30,7 @@ import {
   BarChart,
   Bar,
 } from "recharts";
+import logoSolanaEasy from '../../assets/logo.svg';
 
 const salesData = [
   { day: "Mon", vendas: 2400, transacoes: 12 },
@@ -46,62 +47,62 @@ const transactions = [
     id: "TXN-001",
     date: "30/04/2026 14:32",
     order: "#PED-8821",
-    amount: "R$ 549,90",
+    amount: "USD 549,90",
     status: "completed",
-    statusLabel: "Concluído",
-    detail: "Transação confirmada em 0.4s com 32 validações",
+    statusLabel: "Finished",
+    detail: "Transaction confirmed in block #12345678",
     aiInsight: null,
   },
   {
     id: "TXN-002",
     date: "30/04/2026 13:15",
     order: "#PED-8820",
-    amount: "R$ 89,00",
+    amount: "USD 89,00",
     status: "failed",
-    statusLabel: "Falhou",
-    detail: "Erro de gas insuficiente",
+    statusLabel: "Failed",
+    detail: "Insufficient gas error",
     aiInsight:
-      "Nossa IA traduziu este erro: O cliente tentou pagar, mas não tinha SOL suficiente para a taxa de rede (gas fee). Recomendamos sugerir um depósito via Pix na carteira dele.",
+      "Our AI translated this error: The client attempted to pay, but didn't have enough SOL for the network fee (gas fee). We recommend suggesting a deposit via Pix in their wallet.",
   },
   {
     id: "TXN-003",
     date: "30/04/2026 12:48",
     order: "#PED-8819",
-    amount: "R$ 1.200,00",
+    amount: "USD 1.200,00",
     status: "completed",
-    statusLabel: "Concluído",
-    detail: "Pagamento em USDC confirmado",
+    statusLabel: "Finished",
+    detail: "Transaction confirmed in block #12345678",
     aiInsight: null,
   },
   {
     id: "TXN-004",
     date: "30/04/2026 11:22",
     order: "#PED-8818",
-    amount: "R$ 329,90",
+    amount: "USD 329,90",
     status: "pending",
-    statusLabel: "Pendente",
-    detail: "Aguardando confirmação de bloco",
+    statusLabel: "Pending",
+    detail: "Waiting for block confirmation",
     aiInsight: null,
   },
   {
     id: "TXN-005",
     date: "30/04/2026 10:05",
     order: "#PED-8817",
-    amount: "R$ 78,50",
+    amount: "USD 78,50",
     status: "failed",
-    statusLabel: "Falhou",
-    detail: "Transação rejeitada pelo usuário",
+    statusLabel: "Failed",
+    detail: "Transaction rejected by user",
     aiInsight:
-      "Nossa IA analisou: O cliente cancelou manualmente a transação na carteira Phantom. Isso geralmente indica dúvida sobre o valor ou desconfiança no processo. Recomendamos adicionar um resumo claro do pedido no widget de pagamento.",
+      "Our AI analyzed: The client manually canceled the transaction in their Phantom wallet. This usually indicates uncertainty about the amount or distrust in the process. We recommend adding a clear order summary in the payment widget.",
   },
   {
     id: "TXN-006",
     date: "30/04/2026 09:17",
     order: "#PED-8816",
-    amount: "R$ 2.499,00",
+    amount: "USD 2.499,00",
     status: "completed",
-    statusLabel: "Concluído",
-    detail: "Maior transação do dia",
+    statusLabel: "Finished",
+    detail: "Largest transaction of the day",
     aiInsight: null,
   },
 ];
@@ -133,7 +134,7 @@ function AIInsightBubble({ text, onClose }: { text: string; onClose: () => void 
         </div>
         <div className="flex-1">
           <p className="text-xs mb-1" style={{ color: "#9945FF", fontWeight: 600 }}>
-            Análise por IA
+            AI Analysis
           </p>
           <p style={{ color: "#374151" }}>{text}</p>
         </div>
@@ -157,7 +158,7 @@ export function DashboardPage() {
     { id: "settings", label: "Settings", icon: Settings },
   ];
 
-  const totalVendas = "R$ 27.840,30";
+  const totalVendas = "USD 27.840,30";
   const taxaConversao = "78.3%";
   const transacoesHoje = "24";
   const receitaUSDC = "4.820 USDC";
@@ -176,7 +177,7 @@ export function DashboardPage() {
               className="w-8 h-8 rounded-lg flex items-center justify-center"
               style={{ background: "linear-gradient(135deg, #9945FF, #14F195)" }}
             >
-              <Zap className="w-4 h-4 text-white" fill="white" />
+              <img src={logoSolanaEasy} alt="SolanaEasy logo" className="w-5 h-5 object-contain" />
             </div>
             <span>
               <span style={{ color: "#F9FAFB", fontWeight: 700 }}>SolEasy</span>

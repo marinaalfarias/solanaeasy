@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router";
 import { Menu, X, Zap } from "lucide-react";
+import logoSolanaEasy from '../../assets/logo.svg';
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -25,7 +26,11 @@ export function Navbar() {
               className="w-8 h-8 rounded-lg flex items-center justify-center"
               style={{ background: "linear-gradient(135deg, #9945FF, #14F195)" }}
             >
-              <Zap className="w-4 h-4 text-white" fill="white" />
+              <img
+                src={logoSolanaEasy}
+                alt="Logo SolanaEasy"
+                className="w-5 h-5 object-contain"
+              />
             </div>
             <span style={{ color: "#111827" }} className="hidden sm:block">
               <span style={{ fontWeight: 700 }}>SolEasy</span>
